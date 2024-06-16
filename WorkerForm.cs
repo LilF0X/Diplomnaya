@@ -37,7 +37,7 @@ namespace Diplomnaya
         {
             SqlConnection sqlConnection = ClassConnection.GetConnection();
 
-            string addstring = $"INSERT INTO Дом (Проект дома, Площадь дома, Количество этажей, Адрес дома) VALUES ('{textBox1.Text}', '{textBox2.Text}', '{textBox3.Text}',  '{textBox4.Text}')";
+            string addstring = $"INSERT INTO Дом ([Проект дома], [Площадь дома], [Количество этажей], [Адрес дома]) VALUES ('{textBox1.Text}', '{textBox2.Text}', '{textBox3.Text}',  '{textBox4.Text}')";
 
             SqlCommand cmd = new SqlCommand(addstring, sqlConnection);
 
@@ -67,7 +67,7 @@ namespace Diplomnaya
         {
             SqlConnection sqlConnection = ClassConnection.GetConnection();
 
-            string addstring = $"INSERT INTO [Населённый пункт] (Название населенного пункта, Комуникации в населенном пункте, Количество  выкупленнных участков, Количество участков в продаже, Количество строющихся домов) VALUES ('{textBox6.Text}', '{textBox7.Text}', '{textBox8.Text}',  '{textBox9.Text}', '{textBox10.Text}')";
+            string addstring = $"INSERT INTO [Населённый пункт] ([Название населенного пункта], [Комуникации в населенном пункте], [Количество  выкупленнных участков], [Количество участков в продаже], [Количество строющихся домов]) VALUES ('{textBox6.Text}', '{textBox7.Text}', '{textBox8.Text}',  '{textBox9.Text}', '{textBox10.Text}')";
 
             SqlCommand cmd = new SqlCommand(addstring, sqlConnection);
 
@@ -97,7 +97,7 @@ namespace Diplomnaya
         {
             SqlConnection sqlConnection = ClassConnection.GetConnection();
 
-            string addstring = $"INSERT INTO [Стоимость постройки дома] (Номер проекта дома, Общая стоимость дома, Срок постройки дома, Стоимость земельного участка) VALUES ('{textBox12.Text}', '{textBox13.Text}', '{textBox14.Text}',  '{textBox15.Text}')";
+            string addstring = $"INSERT INTO [Стоимость постройки дома] ([Номер проекта дома], [Общая стоимость дома], [Срок постройки дома], [Стоимость земельного участка]) VALUES ('{textBox12.Text}', '{textBox13.Text}', '{textBox14.Text}',  '{textBox15.Text}')";
 
             SqlCommand cmd = new SqlCommand(addstring, sqlConnection);
 
@@ -126,11 +126,15 @@ namespace Diplomnaya
         private void button7_Click(object sender, EventArgs e)
         {
             проекты_домовTableAdapter.Update(diplommDataSet.Проекты_домов);
+            this.проекты_домовTableAdapter.Update(diplommDataSet.Проекты_домов);
+            MessageBox.Show("Изменено успешно!");
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
             участокTableAdapter.Update(diplommDataSet.Участок);
+            this.участокTableAdapter.Fill(diplommDataSet.Участок);
+            MessageBox.Show("Изменено успешно!");
         }
     }
 }

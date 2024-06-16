@@ -56,5 +56,17 @@ namespace Diplomnaya
                 MessageBox.Show("Проверьте введённые данные! Такого аккаунта не существует");
             }
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            FormReg reg = new FormReg();
+            reg.Show();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            textBox2.PasswordChar = '*';
+        }
     }
 }
